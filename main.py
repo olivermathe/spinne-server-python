@@ -18,22 +18,16 @@ def index():
 def see():
     return os.environ['MYSQL_USER']
 
-# @app.route("/run")
-# def run():
-    # query = "SELECT * from indicadores where indicador1 is not null and indicador2 is not null"
-    # mycursor.execute(query)
-    # row = mycursor.fetchone()
-    # colunas = ('id', 'cd_orgao', 'nr_licitacao', 'ano_licitacao', 'vl_licitacao', 'indicador1', 'indicador2')
-    # with open('tmp/indicadores.csv', 'a') as csvFile:
-    #     writer = csv.writer(csvFile)
-    #     writer.writerow(colunas)
-    #     while row is not None:
-    #         writer.writerow(row)
-    #         row = mycursor.fetchone()
-    # csvFile.close()
-
-# @app.route("/run")
-# def licitacoes(): 
+@app.route("/licitacoes")
+def licitacoes():
+    cur = mysql.connection.cursor()
+    cur.execute('''SELECT id, ano_licitacao, cd_orgao, cd_tipo_modalidade, nr_licitacao, nr_processo, ano_processo FROM licitacoes order by 1,2,3,4,5,6,7''')
+    row_headers=[x[0] for x in cur.description] #this will extract row headers
+    rv = cur.fetchall()
+    json_data=[]
+    for result in rv:
+        json_data.append(dict(zip(row_headers,result)))
+    return json.dumps(json_data)
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
