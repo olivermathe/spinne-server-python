@@ -3,4 +3,4 @@
 
 # Flask Framework
 Flask==1.1.1
-virtualenv
+flask-mysql==1.4.0
