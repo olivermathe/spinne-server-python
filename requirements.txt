@@ -7,7 +7,7 @@ boto3==1.0.0
 flask-cors==3.0.8
 mysql-connector-python==8.0.11
 
-hdbscan==0.8.23 
+hdbscan==0.8.13 
 numpy==1.17.3
 Pandas3==0.0.1
 matplotlib==3.1.1
