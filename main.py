@@ -15,7 +15,7 @@ def index():
     return "<h1>spinne!"
 
 @app.route("/see")
-def index():
+def see():
     return os.environ['MYSQL_USER']
 
 # @app.route("/run")
