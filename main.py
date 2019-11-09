@@ -3,14 +3,11 @@ import csv
 from flask import Flask
 from flask_cors import CORS, cross_origin
 
-# import csv
-# from filtros import *
-
-# import hdbscan
-# import numpy as np
-# import pandas as pd
-# import matplotlib.pyplot as plt
-# import seaborn as sns
+import hdbscan
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 import mysql.connector
 
@@ -61,7 +58,7 @@ def run():
     csvFile.close()
 
     return 'yes!'
-    
+
     # df_csv = pd.read_csv('indicadores2-07-11.csv')[['id','vl_licitacao','indicador1','indicador2']]
     # df_csv[:5]
     # df=df_csv[['vl_licitacao','indicador1','indicador2']]
