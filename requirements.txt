@@ -3,4 +3,4 @@
 
 # Flask Framework
 Flask==1.1.1
-flask-mysql==1.4.0
+boto3==1.0.0
