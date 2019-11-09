@@ -60,6 +60,8 @@ def run():
             row = mycursor.fetchone()
     csvFile.close()
 
+    return 'yes!'
+    
     # df_csv = pd.read_csv('indicadores2-07-11.csv')[['id','vl_licitacao','indicador1','indicador2']]
     # df_csv[:5]
     # df=df_csv[['vl_licitacao','indicador1','indicador2']]
