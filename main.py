@@ -1,16 +1,15 @@
 import os
 import csv
-import mysql.connector
 from flask import Flask
 
 app = Flask(__name__)
 
-mydb = mysql.connector.connect(
-  host=os.environ['MYSQL_HOST'],
-  user=os.environ['MYSQL_USER'],
-  passwd=os.environ['MYSQL_PASSWORD'],
-  database=os.environ['MYSQL_DB']
-)
+# mydb = mysql.connector.connect(
+#   host=os.environ['MYSQL_HOST'],
+#   user=os.environ['MYSQL_USER'],
+#   passwd=os.environ['MYSQL_PASSWORD'],
+#   database=os.environ['MYSQL_DB']
+# )
 
 @app.route("/")
 def index():
@@ -20,15 +19,15 @@ def index():
 def see():
     return os.environ['MYSQL_USER']
 
-@app.route("/licitacoes")
-def licitacoes():
-    mycursor = mydb.cursor()
-    query = "SELECT id, ano_licitacao, cd_orgao, cd_tipo_modalidade, nr_licitacao, nr_processo, ano_processo FROM licitacoes order by 1,2,3,4,5,6,7"
-    mycursor.execute(query)
-    row = mycursor.fetchone()
-    while row is not None:
-        print(row)
-        row = mycursor.fetchone()
+# @app.route("/licitacoes")
+# def licitacoes():
+    # mycursor = mydb.cursor()
+    # query = "SELECT id, ano_licitacao, cd_orgao, cd_tipo_modalidade, nr_licitacao, nr_processo, ano_processo FROM licitacoes order by 1,2,3,4,5,6,7"
+    # mycursor.execute(query)
+    # row = mycursor.fetchone()
+    # while row is not None:
+    #     print(row)
+    #     row = mycursor.fetchone()
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
