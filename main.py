@@ -1,7 +1,7 @@
 import os
 import csv
 from flask import Flask
-from flask.ext.mysqldb import MySQL
+from flaskext.mysql import MySQL
 
 app = Flask(__name__)
 app.config['MYSQL_HOST'] = os.environ['MYSQL_HOST']
